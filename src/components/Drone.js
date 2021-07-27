@@ -91,7 +91,7 @@ const Drone = () => {
         <Col sm={11}>
           <Form onSubmit={handleSearchSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control type="email" placeholder="name@example.com" />
+              <Form.Control type="email" placeholder="Search by Name + Enter" />
             </Form.Group>
           </Form>
         </Col>
