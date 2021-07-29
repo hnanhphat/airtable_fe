@@ -16,8 +16,6 @@ function App() {
   const requester = useSelector((state) => state.requester.requester.data);
   const isAuth = useSelector((state) => state.auth.isAuth);
 
-  console.log(requester);
-
   return (
     <div className="App">
       <Header />

@@ -12,10 +12,7 @@ const FindRequest = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searched, setSearched] = useState(false);
 
-  // console.log(calendars);
-
   const handleChange = (e) => {
-    // console.log({ ...search, [e.target.name]: e.target.value });
     setSearch({ ...search, [e.target.name]: e.target.value });
   };
 

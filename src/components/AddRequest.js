@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 
 const AddRequest = () => {
   const dispatch = useDispatch();
-  const drones = useSelector((state) => state.drone.drones.data);
-  const sprayers = useSelector((state) => state.sprayer.sprayers.data);
   const requester = useSelector((state) => state.requester.requester.data);
   const custom = useSelector((state) => state.calendar.custom.data);
   const [searched, setSearched] = useState(false);
@@ -20,17 +18,13 @@ const AddRequest = () => {
     date: "",
   });
 
-  // console.log(custom);
-
   const handleChange = (e) => {
-    // console.log({ ...create, [e.target.name]: e.target.value });
     setCreate({ ...create, [e.target.name]: e.target.value });
   };
 
   const handleCreate = (e) => {
     e.preventDefault();
     const { requester, sprayer, drones, start, end, date } = create;
-    console.log({ requester, sprayer, drones, start, end, date });
     dispatch(
       calendarAction.createCalendar({
         requester,
@@ -67,13 +61,13 @@ const AddRequest = () => {
   useEffect(() => {
     setCreate({
       requester: requester && requester._id,
-      sprayer: sprayers && sprayers.data.sprayers[0]._id,
+      sprayer: custom && custom.customSprayer[0]._id,
       drones: [],
       start: "",
       end: "",
       date: "",
     });
-  }, [requester, sprayers]);
+  }, [requester, custom]);
 
   return (
     <Form onSubmit={handleCreate}>
@@ -136,7 +130,7 @@ const AddRequest = () => {
                   <Form.Label>
                     Drones{" "}
                     <Badge bg="primary">
-                      {drones.data.drones.length} available
+                      {custom.customDrone.length} available
                     </Badge>
                   </Form.Label>
                   <div>

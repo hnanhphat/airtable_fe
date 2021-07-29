@@ -6,7 +6,6 @@ const getListOfRequester = (pageNumber, option) => async (dispatch) => {
   try {
     dispatch({ type: types.GET_LIST_REQUEST, payload: null });
     const res = await api.get(`/requester?page=${pageNumber + option}`);
-    console.log(res);
     dispatch({
       type: types.GET_LIST_SUCCESS,
       payload: {
